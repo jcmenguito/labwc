@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<labwc_config>
+	<keyboard>
+		<default />
+		<!-- The W- prefix refers to the Super key -->
+		<keybind key="W-q">
+			<action name="Execute" command="kitty" />
+		</keybind>
+		<keybind key="W-r">
+			<action name="Execute" command="wofi --show drun" />
+		</keybind>
+		<keybind key="W-1"><action name="GoToDesktop" to="1"/></keybind>
+		<keybind key="W-2"><action name="GoToDesktop" to="2"/></keybind>
+		<keybind key="W-3"><action name="GoToDesktop" to="3"/></keybind>
+		<keybind key="W-4"><action name="GoToDesktop" to="4"/></keybind>
+	</keyboard>
+	<desktops number="4">
+		<popupTime>1000</popupTime>
+		<name>1</name>
+		<name>2</name>
+		<name>3</name>
+		<name>4</name>
+	</desktops>
+	<theme><name>Nord-Openbox</name></theme>
+	<focus>
+		<followMouse>yes</followMouse>
+		<followMouseRequiresMovement>yes</followMouseRequiresMovement>
+		<raiseOnFocus>yes</raiseOnFocus>
+	</focus>
+	<!--	<windowRules>
+		<windowRule title="firefox">
+			<action ResizeTo width="600" height="800" />
+			<action MoveTo x="200" y="200" />
+		</windowRule>
+	</windowRules> -->
+</labwc_config>
