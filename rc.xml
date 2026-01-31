@@ -7,7 +7,7 @@
 			<action name="Execute" command="kitty" />
 		</keybind>
 		<keybind key="W-r">
-			<action name="Execute" command="wofi --show drun" />
+			<action name="Execute" command="wofi --show drun " />
 		</keybind>
 		<keybind key="W-1"><action name="GoToDesktop" to="1"/></keybind>
 		<keybind key="W-2"><action name="GoToDesktop" to="2"/></keybind>
@@ -21,16 +21,20 @@
 		<name>3</name>
 		<name>4</name>
 	</desktops>
-	<theme><name>Nord-Openbox</name></theme>
+	<theme>
+		<name>Nord-Openbox</name>
+		<icon>GreyStone</icon>
+		<fallbackAppIcon>labwc</fallbackAppIcon>
+		<cornerRadius>10</cornerRadius>
+	</theme>
 	<focus>
 		<followMouse>yes</followMouse>
 		<followMouseRequiresMovement>yes</followMouseRequiresMovement>
-		<raiseOnFocus>yes</raiseOnFocus>
+		<raiseOnFocus>no</raiseOnFocus>
 	</focus>
-	<!--	<windowRules>
-		<windowRule title="firefox">
-			<action ResizeTo width="600" height="800" />
-			<action MoveTo x="200" y="200" />
-		</windowRule>
-	</windowRules> -->
+	<windowRules>
+		<windowRule identifier="wofi">
+			<action name="SetDecorations" decorations="none" />
+		</windowRule>	
+	</windowRules>
 </labwc_config>
