@@ -1,10 +1,12 @@
-nm-applet &
+swaync &
+~/scripts/swaync-mount-watch2.sh  > /dev/null 2>&1 &
+~/scripts/swaync-umount-watch4.sh  > /dev/null 2>&1 &
+~/scripts/music_notify.sh > /dev/null 2>&1 &
+waybar > /dev/null 2>&1 &
+sleep 3 && nm-applet --indicator &,
 pipewire &
 pipewire-pulse &
-wireplumber &
-blueman-applet &
-#swaybg -c '#334455' &
-#waypaper --restore &
-waybar &
+sleep 5 && wireplumber &
+sleep 3 && blueman-applet &
 swww-daemon &
-~/scripts/wallpaper.sh
+~/scripts/wallpaper2.sh
