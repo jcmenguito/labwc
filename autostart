@@ -1,12 +1,39 @@
+###################################################################   #
+# This is the current autostart file I use in my labwc installation.   #
+# pipewire, pipewire-pulse & wireplumber were started as dinit        #
+# user service for Artix Linux (dinit). Google AI was used to aid the #
+# the configuration.                                                   #
+#######################################################################
+
+# for notification
 swaync &
-~/scripts/swaync-mount-watch2.sh  > /dev/null 2>&1 &
-~/scripts/swaync-umount-watch4.sh  > /dev/null 2>&1 &
-~/scripts/music_notify.sh > /dev/null 2>&1 &
-waybar > /dev/null 2>&1 &
-sleep 3 && nm-applet --indicator &,
-pipewire &
-pipewire-pulse &
-sleep 5 && wireplumber &
-sleep 3 && blueman-applet &
-swww-daemon &
-~/scripts/wallpaper2.sh
+# waybar
+
+waybar --log-level off &
+
+# This puts udiskie in the waybar tray. This also sends out a
+# notification when a drive is mounted/unmounted.
+
+udiskie --tray --event-hook '~/.config/udiskie/notify.sh %device_file' &
+
+# The next 2 lines starts the network and bluetooth applets. sleep
+# used to delay to make sure waybar is settled before the applets
+# start
+
+sleep 3 && nm-applet --indicator &
+sleep 4 && blueman-applet &
+
+# Start the swww-daemon with --no-cache option to prevent artifacts
+# from the previous wallpaper to seen in the next.
+
+swww-daemon --no-cache &
+# Start the shell script wrapper for swww to use random transitions
+# for all the *.jpg & *.png images in my Wallpapers directory
+ 
+~/scripts/wallpaper.sh &
+
+# start the song notification script for gapless (g4music). If you're
+# using different music player, feel free to modify the script.
+
+~/.config/swaync/song_notify.sh &
+
