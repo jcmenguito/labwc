@@ -7,6 +7,10 @@
 
 # for notification
 swaync &
+
+# start the notifier script
+sleep 3 && ~/scripts/music_notifier.sh &
+
 # waybar
 
 waybar --log-level off &
@@ -32,8 +36,7 @@ swww-daemon --no-cache &
  
 ~/scripts/wallpaper.sh &
 
-# start the song notification script for gapless (g4music). If you're
-# using different music player, feel free to modify the script.
 
-~/.config/swaync/song_notify.sh &
+
+
 
